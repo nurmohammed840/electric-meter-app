@@ -7724,8 +7724,10 @@ aXq(a){var s=a.i(0,"accountNo"),r=a.i(0,"contactNo"),q=a.i(0,"customerName"),p=a
 return new A.fi(m,q,a.i(0,"tariffSolution"),s,r,p,o,new A.k7(A.bE(n),A.bw(n),A.c1(n)),l,k,j,a.i(0,"meterModel"),a.i(0,"transformer"),a.i(0,"SDName"))},
 aVC(a){var s,r,q,p,o,n,m,l=a.i(0,"accountNo"),k=a.i(0,"consumedTaka")
 k=k==null?null:J.pr(k)
+if(k==null)k=0
 s=a.i(0,"consumedUnit")
 s=s==null?null:J.pr(s)
+if(s==null)s=0
 r=a.i(0,"customerName")
 q=a.i(0,"importReactiveEnergyIncrement")
 p=a.i(0,"installationAddress")
@@ -7735,27 +7737,40 @@ m=a.i(0,"phaseType")
 return new A.fe(k,s,n,a.i(0,"sanctionLoad"),a.i(0,"tariffSolution"),l,o,m,r,q,p)},
 aUF(a){var s,r,q=a.i(0,"accountNo"),p=a.i(0,"meterNo"),o=a.i(0,"balance")
 o=o==null?null:J.pr(o)
+if(o==null)o=0
 s=a.i(0,"currentMonthConsumption")
 s=s==null?null:J.pr(s)
+if(s==null)s=0
 r=A.a70(a.i(0,"readingTime"))
 return new A.dz(q,p,o,s,new A.k7(A.bE(r),A.bw(r),A.c1(r)))},
 aZp(a){return A.aZo(a)},
-aZo(a){var s,r,q,p,o,n,m,l=null,k=a.i(0,"accountNo"),j=a.i(0,"meterNo"),i=B.c.tp(a.i(0,"orderID"),A.ce("^0+",!0,!1),""),h=A.b2C(a.i(0,"tokenNo"),4),g=a.i(0,"seqNo"),f=a.i(0,"totalAmount"),e=a.i(0,"energyAmount")
-e=e==null?l:J.pr(e)
-if(e==null)e=0
-s=a.i(0,"chargeAmount")
-s=s==null?l:J.pr(s)
-if(s==null)s=0
-r=A.a70(a.i(0,"rechargeDate"))
-q=a.i(0,"rechargeOperator")
-p=a.i(0,"rebate")
-p=p==null?l:J.pr(p)
+aZo(a){var s,r,q,p,o,n,m,l,k,j,i,h=null,g=a.i(0,"accountNo"),f=a.i(0,"meterNo"),e=a.i(0,"orderID")
+if(e==null)e=""
+e=B.c.tp(e,A.ce("^0+",!0,!1),"")
+s=a.i(0,"tokenNo")
+s=A.b2C(s==null?"":s,4)
+r=a.i(0,"seqNo")
+if(r==null)r=""
+q=a.i(0,"totalAmount")
+if(q==null)q=0
+p=a.i(0,"energyAmount")
+p=p==null?h:J.pr(p)
 if(p==null)p=0
-o=A.i1(J.aJJ(a.i(0,"chargeItems"),new A.aiN()),!0,t.eW)
-n=a.i(0,"orderStatus")
-m=a.i(0,"VAT")
-m=m==null?l:J.pr(m)
-return new A.mb(k,j,i,h,g,f,e,s,r,q,p,o,n,m==null?0:m)},
+o=a.i(0,"chargeAmount")
+o=o==null?h:J.pr(o)
+if(o==null)o=0
+n=A.a70(a.i(0,"rechargeDate"))
+m=a.i(0,"rechargeOperator")
+if(m==null)m=""
+l=a.i(0,"rebate")
+l=l==null?h:J.pr(l)
+if(l==null)l=0
+k=A.i1(J.aJJ(a.i(0,"chargeItems"),new A.aiN()),!0,t.eW)
+j=a.i(0,"orderStatus")
+if(j==null)j=""
+i=a.i(0,"VAT")
+i=i==null?h:J.pr(i)
+return new A.mb(g,f,e,s,r,q,p,o,n,m,l,k,j,i==null?0:i)},
 b2C(a,b){var s,r,q,p,o,n
 for(s=a.split(""),r=s.length,q=0,p=0,o="";p<r;++p){n=s[p]
 if(n===","){o+=",\n"
@@ -45865,7 +45880,10 @@ ej(){var s=this,r=s.Q,q=t.z
 return A.aF(["accountNo",s.a,"meterNo",s.b,"orderID",s.c,"token",s.d,"sequence",s.e,"totalAmount",s.f,"energyAmount",s.r,"chargeAmount",s.w,"rechargeDate",s.x.aAg(),"rechargeOperator",s.y,"rebate",s.z,"chargeItems",A.i1(new A.a1(r,new A.aiO(),A.X(r).h("a1<1,@>")),!0,q),"orderStatus",s.as,"VAT",s.at],t.N,q)},
 k(a){return A.Hz(this.ej(),null,"  ")}}
 A.aiN.prototype={
-$1(a){return new A.il(a.i(0,"chargeItemName"),a.i(0,"chargeAmount"))},
+$1(a){var s,r=a.i(0,"chargeItemName")
+if(r==null)r="Other Charge"
+s=a.i(0,"chargeAmount")
+return new A.il(r,s==null?0:s)},
 $S:293}
 A.aiO.prototype={
 $1(a){return a.ej()},
